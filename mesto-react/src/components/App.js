@@ -1,30 +1,37 @@
 import React, {useState, useEffect} from 'react';
 import '../index.css';
-import Header from '../components/Header';
-import Main from "../components/Main";
-import Footer from "../components/Footer";
-import PopupWithForm from "./PopupWithForm";
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
+import PopupWithForm from './PopupWithForm';
+import ImagePopup from './ImagePopup';
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-
-
+  const [selectedCard, setSelectedCard] = useState();
 
   function handleEditAvatarClick() {
-    // document.querySelector('.popup_edit_avatar').classList.add('popup_active');
     setIsEditAvatarPopupOpen(!isEditAvatarPopupOpen);
   }
 
   function handleEditProfileClick() {
-    // document.querySelector('.popup_edit_profile').classList.add('popup_active');
     setIsEditProfilePopupOpen(!isEditProfilePopupOpen);
   }
 
   function handleAddPlaceClick() {
-    // document.querySelector('.popup_add_photo').classList.add('popup_active');
     setIsAddPlacePopupOpen(!isAddPlacePopupOpen);
+  }
+
+  function closeAllPopups() {
+    setIsEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+  }
+
+  function handleCardClick() {
+    setSelectedCard()
   }
 
   return (
@@ -32,7 +39,10 @@ function App() {
 
       <Header/>
 
-      <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick}/>
+      <Main onEditProfile={handleEditProfileClick}
+            onAddPlace={handleAddPlaceClick}
+            onEditAvatar={handleEditAvatarClick}
+            onCardClick={handleCardClick}/>
 
       <PopupWithForm title="Редактировать профиль"
                      name="edit_profile"
@@ -50,6 +60,7 @@ function App() {
                        </>
                      }
                      isOpen={isEditProfilePopupOpen}
+                     onClose={closeAllPopups}
       />
 
       <PopupWithForm title="Новое место"
@@ -67,6 +78,7 @@ function App() {
                        </>
                      }
                      isOpen={isAddPlacePopupOpen}
+                     onClose={closeAllPopups}
       />
 
       <PopupWithForm title="Обновить аватар"
@@ -80,6 +92,7 @@ function App() {
                        </>
                      }
                      isOpen={isEditAvatarPopupOpen}
+                     onClose={closeAllPopups}
       />
 
       <PopupWithForm title="Вы уверены?"
@@ -90,6 +103,8 @@ function App() {
                        </>
                      }
       />
+
+      <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
 
       <Footer/>
 
