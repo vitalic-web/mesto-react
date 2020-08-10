@@ -1,3 +1,7 @@
+/**
+ * Класс для запросов к api, в нем создается один экземляр и экспортируется для дальнейшей работы
+ */
+
 export class Api {
   constructor(options){
     this._url = options.url;

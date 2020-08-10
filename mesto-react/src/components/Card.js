@@ -1,9 +1,20 @@
 import React from 'react';
 
+/**
+ * Компонент создания карточки
+ * @param link - ссылка на картинку
+ * @param name - название места
+ * @param likes - количество лайков
+ * @param onCardClick - параметр для передачи данных карточки в компонент ImagePopup
+ * @returns {JSX.Element} - возвращает разметку карточки
+ * @constructor
+ */
+
 function Card({link, name, likes, onCardClick}) {
 
+  // функция для передачи параметров текущей карточки для открытия картинки в полный размер
   function handleClick() {
-    onCardClick();
+    onCardClick(name, link, true);
   }
 
   return (

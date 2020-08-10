@@ -6,11 +6,17 @@ import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 
+/**
+ * Основной компонент, установлены слушатели на закрытие крестиком/escape/overlay
+ * @returns {JSX.Element} - возврат разметки всей старницы
+ * @constructor
+ */
+
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState();
+  const [selectedCard, setSelectedCard] = useState({name: '', link: '', visibility: false});
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(!isEditAvatarPopupOpen);
@@ -24,15 +30,42 @@ function App() {
     setIsAddPlacePopupOpen(!isAddPlacePopupOpen);
   }
 
+  function handleCardClick(name, link, visibility) {
+    setSelectedCard({name, link, visibility});
+  }
+
+  //закрытие всех попапов
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
+    setSelectedCard((selectedCard) => {
+      return {...selectedCard, visibility: false}; // возврат значения адреса/имени картинки для плавного закрытия
+    });
   }
 
-  function handleCardClick() {
-    setSelectedCard()
-  }
+  // закрытие попапов через escape и overlay
+  useEffect(() => {
+    function handleOverlayClose(evt) {
+      if (evt.target.classList.contains('popup_active')) {
+        closeAllPopups();
+      }
+    }
+
+    function handleEscClose(evt) {
+      if (evt.key === "Escape") {
+        closeAllPopups();
+      }
+    }
+
+    document.addEventListener('click', handleOverlayClose);
+    document.addEventListener('keydown', handleEscClose);
+
+    return () => {
+      document.removeEventListener('click', handleOverlayClose);
+      document.removeEventListener('keydown', handleEscClose);
+    }
+  })
 
   return (
     <div className="page">

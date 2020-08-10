@@ -1,35 +1,17 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+
+/**
+ * Компонент создания окна попап
+ * @param title - название окна попап
+ * @param name - уникальная часть имени класса определенного типа попапа
+ * @param children - уникальная разметка для каждого класса
+ * @param isOpen - параметр для открытия попапа, меняется при клике на true
+ * @param onClose - закрытие попапа по клику на крестик
+ * @returns {JSX.Element} - возвращает разметку попапа
+ * @constructor
+ */
 
 function PopupWithForm({title, name, children, isOpen, onClose}) {
-
-  useEffect(() => {
-    console.log('useEffect');
-
-    function handleOverlayClose(evt) {
-      if (evt.target.classList.contains('popup_active')) {
-        onClose();
-      }
-    }
-
-    function handleEscClose(evt) {
-      if (evt.key === "Escape") {
-        onClose();
-      }
-    }
-
-    if(isOpen) {
-      console.log('addListener');
-      document.addEventListener('click', handleOverlayClose);
-      document.addEventListener('keydown', handleEscClose);
-    }
-
-
-    return () => {
-      console.log('removeEffect');
-      document.removeEventListener('click', handleOverlayClose);
-      document.removeEventListener('keydown', handleEscClose);
-    }
-  }, [isOpen])
 
   return (
     <section className={`popup popup_${name} ${isOpen ? 'popup_active' : ''}`}>
