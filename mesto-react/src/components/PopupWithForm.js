@@ -21,11 +21,10 @@ function PopupWithForm({title, name, children, isOpen, onClose}) {
 
         {children}
 
-        <button className="popup__close-icon" type="button" onClick={onClose}>
-        </button>
+        <button className="popup__close-icon" type="button" onClick={onClose}/>
       </form>
     </section>
-  )
+  );
 }
 
 export default PopupWithForm;

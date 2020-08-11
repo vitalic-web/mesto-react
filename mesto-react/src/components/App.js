@@ -24,6 +24,7 @@ function App() {
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(!isEditProfilePopupOpen);
+
   }
 
   function handleAddPlaceClick() {
@@ -75,67 +76,55 @@ function App() {
       <Main onEditProfile={handleEditProfileClick}
             onAddPlace={handleAddPlaceClick}
             onEditAvatar={handleEditAvatarClick}
-            onCardClick={handleCardClick}/>
+            onCardClick={handleCardClick}
+      />
 
       <PopupWithForm title="Редактировать профиль"
                      name="edit_profile"
-                     children={
-                       <>
-                         <input name="name" className="popup__input popup__input_filed_name" type="text" required
-                                pattern="[А-ЯЁа-яёA-Za-z -]{1,}" minLength="2" maxLength="40" id="name-input"/>
-                         <span className="popup__input-error-message" id="name-input-error"></span>
-
-                         <input name="about" className="popup__input popup__input_filed_prof" type="text" required
-                                minLength="2"
-                                maxLength="200" id="prof-input"/>
-                         <span className="popup__input-error-message" id="prof-input-error"></span>
-                         <button className="popup__save-button" type="submit">Сохранить</button>
-                       </>
-                     }
                      isOpen={isEditProfilePopupOpen}
                      onClose={closeAllPopups}
-      />
+      >
+        <input name="name" className="popup__input popup__input_filed_name" type="text" required
+               pattern="[А-ЯЁа-яёA-Za-z -]{1,}" minLength="2" maxLength="40" id="name-input" placeholder={"Имя"}/>
+        <span className="popup__input-error-message" id="name-input-error"></span>
+
+        <input name="about" className="popup__input popup__input_filed_prof" type="text" required
+               minLength="2" maxLength="200" id="prof-input" placeholder={"Занятие"}/>
+        <span className="popup__input-error-message" id="prof-input-error"></span>
+        <button className="popup__save-button" type="submit">Сохранить</button>
+      </PopupWithForm>
 
       <PopupWithForm title="Новое место"
                      name="add_photo"
-                     children={
-                       <>
-                         <input name="place" className="popup__input popup__input_filed_name" type="text" placeholder="Название"
-                                required minLength="1" maxLength="30" id="place-input"/>
-                         <span className="popup__input-error-message" id="place-input-error"></span>
-
-                         <input name="link" className="popup__input popup__input_filed_prof" type="url"
-                                placeholder="Ссылка на картинку" required id="link-input"/>
-                         <span className="popup__input-error-message" id="link-input-error"></span>
-                         <button className="popup__save-button" type="submit">Создать</button>
-                       </>
-                     }
                      isOpen={isAddPlacePopupOpen}
                      onClose={closeAllPopups}
-      />
+      >
+        <input name="place" className="popup__input popup__input_filed_name" type="text" placeholder="Название"
+               required minLength="1" maxLength="30" id="place-input"/>
+        <span className="popup__input-error-message" id="place-input-error"></span>
+
+        <input name="link" className="popup__input popup__input_filed_prof" type="url"
+               placeholder="Ссылка на картинку" required id="link-input"/>
+        <span className="popup__input-error-message" id="link-input-error"></span>
+        <button className="popup__save-button" type="submit">Создать</button>
+      </PopupWithForm>
 
       <PopupWithForm title="Обновить аватар"
                      name="edit_avatar"
-                     children={
-                       <>
-                         <input name="avatar" className="popup__input popup__input_filed_avatar-link" type="url"
-                                placeholder="Ссылка на аватар" required id="avatar-input"/>
-                         <span className="popup__input-error-message" id="avatar-input-error"></span>
-                         <button className="popup__save-button" type="submit">Сохранить</button>
-                       </>
-                     }
                      isOpen={isEditAvatarPopupOpen}
                      onClose={closeAllPopups}
-      />
+      >
+        <input name="avatar" className="popup__input popup__input_filed_avatar-link" type="url"
+               placeholder="Ссылка на аватар" required id="avatar-input"/>
+        <span className="popup__input-error-message" id="avatar-input-error"></span>
+        <button className="popup__save-button" type="submit">Сохранить</button>
+      </PopupWithForm>
 
       <PopupWithForm title="Вы уверены?"
                      name="is_delete"
-                     children={
-                       <>
-                         <button className="popup__save-button popup__save-button_delete" type="submit">Да</button>
-                       </>
-                     }
-      />
+      >
+        <button className="popup__save-button popup__save-button_delete" type="submit">Да</button>
+      </PopupWithForm>
 
       <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
 

@@ -1,5 +1,7 @@
 {
   "name": "mesto-react",
+  "description": "Project Mesto on React framework",
+  "author": "Vitaly Stekolshchikov",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
