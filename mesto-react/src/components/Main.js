@@ -31,7 +31,7 @@ function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
         )
       })
       .catch(err => console.error(err));
-  });
+  }, []);
 
   return (
     <main className="content">

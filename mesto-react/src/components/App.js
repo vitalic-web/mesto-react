@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import '../index.css';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -86,11 +85,11 @@ function App() {
       >
         <input name="name" className="popup__input popup__input_filed_name" type="text" required
                pattern="[А-ЯЁа-яёA-Za-z -]{1,}" minLength="2" maxLength="40" id="name-input" placeholder={"Имя"}/>
-        <span className="popup__input-error-message" id="name-input-error"></span>
+        <span className="popup__input-error-message" id="name-input-error"/>
 
         <input name="about" className="popup__input popup__input_filed_prof" type="text" required
                minLength="2" maxLength="200" id="prof-input" placeholder={"Занятие"}/>
-        <span className="popup__input-error-message" id="prof-input-error"></span>
+        <span className="popup__input-error-message" id="prof-input-error"/>
         <button className="popup__save-button" type="submit">Сохранить</button>
       </PopupWithForm>
 
@@ -101,11 +100,11 @@ function App() {
       >
         <input name="place" className="popup__input popup__input_filed_name" type="text" placeholder="Название"
                required minLength="1" maxLength="30" id="place-input"/>
-        <span className="popup__input-error-message" id="place-input-error"></span>
+        <span className="popup__input-error-message" id="place-input-error"/>
 
         <input name="link" className="popup__input popup__input_filed_prof" type="url"
                placeholder="Ссылка на картинку" required id="link-input"/>
-        <span className="popup__input-error-message" id="link-input-error"></span>
+        <span className="popup__input-error-message" id="link-input-error"/>
         <button className="popup__save-button" type="submit">Создать</button>
       </PopupWithForm>
 
@@ -116,7 +115,7 @@ function App() {
       >
         <input name="avatar" className="popup__input popup__input_filed_avatar-link" type="url"
                placeholder="Ссылка на аватар" required id="avatar-input"/>
-        <span className="popup__input-error-message" id="avatar-input-error"></span>
+        <span className="popup__input-error-message" id="avatar-input-error"/>
         <button className="popup__save-button" type="submit">Сохранить</button>
       </PopupWithForm>
 
