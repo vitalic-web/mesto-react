@@ -33,25 +33,25 @@ export class Api {
       .then(this._handleResponse)
   };
 
-  setProfileInfo(inputValues) {
+  setProfileInfo(name, about) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: inputValues.name,
-        about: inputValues.about
+        name: name,
+        about: about
       })
     })
     .then(this._handleResponse)
   };
 
-  addCard(card) {
+  addCard(place, link) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: card.place,
-        link: card.link
+        name: place,
+        link: link
       })
     })
     .then(this._handleResponse)
@@ -65,28 +65,28 @@ export class Api {
     .then(this._handleResponse)
   };
 
-  addLike(card) {
-    return fetch(`${this._url}/cards/likes/${card._id}`, {
-      method: 'PUT',
-      headers: this._headers
-    })
-    .then(this._handleResponse)
-  };
-
-  removeLike(card) {
-    return fetch(`${this._url}/cards/likes/${card._id}`, {
-      method: 'DELETE',
-      headers: this._headers
-    })
-    .then(this._handleResponse)
-  };
+  changeLikeCardStatus(cardID, isLiked) {
+    if (isLiked) {
+      return fetch(`${this._url}/cards/likes/${cardID}`, {
+        method: 'DELETE',
+        headers: this._headers
+      })
+        .then(this._handleResponse)
+    } else {
+      return fetch(`${this._url}/cards/likes/${cardID}`, {
+        method: 'PUT',
+        headers: this._headers
+      })
+        .then(this._handleResponse)
+    }
+  }
 
   editAvatar(inputValue) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        avatar: inputValue.avatar
+        avatar: inputValue
       })
     })
     .then(this._handleResponse)
