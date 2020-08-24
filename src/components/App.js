@@ -25,8 +25,12 @@ function App() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    api.getInitialCards()
-      .then(res => setCards(res))
+    Promise.all([api.getProfileInfo(), api.getInitialCards()])
+      .then(([profileInfo, cardsInfo]) => {
+        setCurrentUser(profileInfo);
+        setCards(cardsInfo);
+    })
+      .catch(err => console.error(err))
   }, [])
 
   function handleCardLike(card) {
@@ -62,13 +66,6 @@ function App() {
   function handleCardClick(name, link, visibility) {
     setSelectedCard({name, link, visibility});
   }
-
-  // данные о пользователе с сервера
-  useEffect(() => {
-    api.getProfileInfo()
-      .then(res => setCurrentUser(res))
-      .catch(err => console.error(err))
-  }, [])
 
   // закрытие всех попапов
   function closeAllPopups() {
