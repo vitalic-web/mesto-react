@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a9d14d1960a75321458bcc54a18910d1",
+    "revision": "2636542703f6c0fed26703d698e3dab9",
     "url": "/mesto-react/index.html"
   },
   {
