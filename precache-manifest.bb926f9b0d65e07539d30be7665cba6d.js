@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "da022db76373876bfd38091073b4fd11",
+    "revision": "a9d14d1960a75321458bcc54a18910d1",
     "url": "/mesto-react/index.html"
   },
   {
-    "revision": "ead5748e8b8f510e95d0",
-    "url": "/mesto-react/static/css/main.42b14550.chunk.css"
+    "revision": "bf1f18a3e35247ce691f",
+    "url": "/mesto-react/static/css/main.73c53c4d.chunk.css"
   },
   {
     "revision": "dd682bf4fdf691c18c53",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mesto-react/static/js/2.bfa99d5d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ead5748e8b8f510e95d0",
-    "url": "/mesto-react/static/js/main.6216e8cb.chunk.js"
+    "revision": "bf1f18a3e35247ce691f",
+    "url": "/mesto-react/static/js/main.97c6d3b9.chunk.js"
   },
   {
     "revision": "6e04319a44e5e6859875",
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mesto-react/static/media/element__title-like.6c74d9b5.svg"
   },
   {
-    "revision": "5bbb05f725aa334a73acf3174e255f4e",
-    "url": "/mesto-react/static/media/element__title-like_active.5bbb05f7.svg"
+    "revision": "9fdebb6b009c16af50fae58657e30a94",
+    "url": "/mesto-react/static/media/element__title-like_active.9fdebb6b.svg"
   },
   {
     "revision": "855a8c9865e79463f31e74f9abcb4438",
@@ -64,16 +64,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mesto-react/static/media/popup__close-icon.c2d0901f.svg"
   },
   {
-    "revision": "d80783439d382b46ce24b8da369767d4",
-    "url": "/mesto-react/static/media/popup__delete-icon.d8078343.svg"
+    "revision": "efa6fb04512d4ea565aaa4109835b46d",
+    "url": "/mesto-react/static/media/popup__delete-icon.efa6fb04.svg"
   },
   {
     "revision": "bdfb8ebb113b9312e080c2f4b4213223",
     "url": "/mesto-react/static/media/profile__add-button-plus.bdfb8ebb.svg"
   },
   {
-    "revision": "d476a8b86d0b656cfa463c1148e96069",
-    "url": "/mesto-react/static/media/profile__avatar-editor.d476a8b8.svg"
+    "revision": "34c4685038e8cf551566cb4ee96e20e5",
+    "url": "/mesto-react/static/media/profile__avatar-editor.34c46850.svg"
   },
   {
     "revision": "c8252db2902c59bff2cb619de2b75c2f",
