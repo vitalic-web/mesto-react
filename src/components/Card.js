@@ -32,13 +32,8 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
   return (
     <div className="element">
       <img className="element__image"
-           src="#"
+           src={card.link}
            alt=""
-           style={{
-             backgroundImage: `url(${card.link})`,
-             backgroundPosition: "center",
-             backgroundSize: "cover"
-           }}
            onClick={handleClick}
       />
       {/*element__delete_hidden добавляется если карточка не моя*/}

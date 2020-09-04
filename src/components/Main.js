@@ -23,13 +23,8 @@ function Main({cards, onCardLike, onCardDelete, onEditProfile, onAddPlace, onEdi
       <section className="profile">
         <div className="profile__info">
           <img className="profile__avatar"
-               src=""
+               src={currentUser && currentUser.avatar}
                alt=""
-               style={{
-                 backgroundImage: `url(${currentUser && currentUser.avatar})`, // отрисовка после получения объекта
-                 backgroundPosition: "center",
-                 backgroundSize: "cover"
-               }}
           />
           <div className="profile__avatar-editor" onClick={onEditAvatar}></div>
           <div className="profile__author">
